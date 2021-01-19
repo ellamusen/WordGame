@@ -14,6 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("introduction.fxml"));
         primaryStage.setTitle("Word game!");
         primaryStage.setScene(new Scene(root, 1000, 600));
+        primaryStage.getScene().getStylesheets().add("/assets/game.css");
         primaryStage.show();
     }
 

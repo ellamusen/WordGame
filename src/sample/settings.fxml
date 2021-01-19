@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -21,36 +23,6 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
-      <Rectangle height="85.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="50.0" layoutX="575.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0" />
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="50.0" layoutX="685.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0" />
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="50.0" layoutX="465.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0" />
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="50.0" layoutX="795.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0" />
-      <Text fill="WHITE" layoutX="104.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GUESS  THE">
-         <font>
-            <Font name="Gloria Hallelujah" size="49.0" />
-         </font>
-      </Text>
-      <Text layoutX="482.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="W">
-         <font>
-            <Font name="Gloria Hallelujah" size="49.0" />
-         </font>
-      </Text>
-      <Text layoutX="598.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O">
-         <font>
-            <Font name="Gloria Hallelujah" size="49.0" />
-         </font>
-      </Text>
-      <Text layoutX="708.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="R">
-         <font>
-            <Font name="Gloria Hallelujah" size="49.0" />
-         </font>
-      </Text>
-      <Text layoutX="821.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D">
-         <font>
-            <Font name="Gloria Hallelujah" size="49.0" />
-         </font>
-      </Text>
       <Button fx:id="startGame" layoutX="442.0" layoutY="495.0" mnemonicParsing="false" onAction="#startGame" prefHeight="48.0" prefWidth="130.0" style="-fx-background-color: white; -fx-background-radius: 25;" text="START" textAlignment="CENTER">
          <font>
             <Font size="25.0" />
@@ -89,7 +61,7 @@
             <Font name="Gloria Hallelujah" size="35.0" />
          </font>
       </Text>
-      <Button fx:id="isGenerated" accessibleRole="CHECK_BOX" layoutX="488.0" layoutY="160.0" mnemonicParsing="false" onAction="#setWords" prefHeight="24.0" prefWidth="201.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="Generated" textAlignment="CENTER">
+      <Button fx:id="isGeneratedBtn" accessibleRole="CHECK_BOX" layoutX="488.0" layoutY="160.0" mnemonicParsing="false" onAction="#setWords" prefHeight="24.0" prefWidth="201.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="Generated" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -100,7 +72,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="isCustom" accessibleRole="CHECK_BOX" layoutX="771.0" layoutY="160.0" mnemonicParsing="false" onAction="#setWords" prefHeight="45.0" prefWidth="197.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="Custom" textAlignment="CENTER">
+      <Button fx:id="isCustomBtn" accessibleRole="CHECK_BOX" layoutX="771.0" layoutY="160.0" mnemonicParsing="false" onAction="#setWords" prefHeight="45.0" prefWidth="197.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="Custom" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -111,7 +83,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="isAutomatic" accessibleRole="CHECK_BOX" layoutX="490.0" layoutY="265.0" mnemonicParsing="false" onAction="#setEachRounds" prefHeight="54.0" prefWidth="197.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="Automatic" textAlignment="CENTER">
+      <Button fx:id="isAutomaticBtn" accessibleRole="CHECK_BOX" layoutX="490.0" layoutY="265.0" mnemonicParsing="false" onAction="#setEachRounds" prefHeight="54.0" prefWidth="197.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="Automatic" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -122,7 +94,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="isManual" accessibleRole="CHECK_BOX" layoutX="771.0" layoutY="265.0" mnemonicParsing="false" onAction="#setEachRounds" prefHeight="18.0" prefWidth="197.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="Manual" textAlignment="CENTER">
+      <Button fx:id="isManualBtn" accessibleRole="CHECK_BOX" layoutX="771.0" layoutY="265.0" mnemonicParsing="false" onAction="#setEachRounds" prefHeight="18.0" prefWidth="197.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="Manual" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -133,7 +105,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="livesNone" accessibleRole="CHECK_BOX" layoutX="858.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="None" textAlignment="CENTER">
+      <Button fx:id="livesNoneBtn" accessibleRole="CHECK_BOX" layoutX="858.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="39.0" prefWidth="110.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="None" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -144,7 +116,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="livesFifteen" accessibleRole="CHECK_BOX" layoutX="679.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="61.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="15" textAlignment="CENTER">
+      <Button fx:id="livesFifteenBtn" accessibleRole="CHECK_BOX" layoutX="679.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="61.0" prefWidth="76.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="15" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -155,7 +127,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="livesTen" accessibleRole="CHECK_BOX" layoutX="585.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="61.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="10" textAlignment="CENTER">
+      <Button fx:id="livesTenBtn" accessibleRole="CHECK_BOX" layoutX="585.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="61.0" prefWidth="76.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="10" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -166,7 +138,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="livesFive" accessibleRole="CHECK_BOX" layoutX="490.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="61.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 0;" text="5" textAlignment="CENTER">
+      <Button fx:id="livesFiveBtn" accessibleRole="CHECK_BOX" layoutX="490.0" layoutY="350.0" mnemonicParsing="false" onAction="#setLives" prefHeight="61.0" prefWidth="76.0" styleClass="settingsButton" stylesheets="@../assets/game.css" text="5" textAlignment="CENTER">
          <effect>
             <DropShadow color="#00000059" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
          </effect>
@@ -177,5 +149,10 @@
             <Insets />
          </opaqueInsets>
       </Button>
+      <ImageView fitHeight="109.0" fitWidth="1000.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Header.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

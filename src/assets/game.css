@@ -1,0 +1,10 @@
+.settingsButton {
+    -fx-background-color: #fff;
+    -fx-background-radius: 15;
+    -fx-padding: 0;
+}
+
+.active {
+    -fx-background-color: #08D10D !important;
+    -fx-text-fill: #fff;
+}
