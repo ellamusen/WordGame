@@ -24,7 +24,7 @@ public class IntroductionController {
     //Method for startButton that takes you to another screen
     @FXML
     private void startGame(ActionEvent event) {
-        System.out.println("The game has started!");
+        System.out.println("Here are the settings!");
 
         try {
             FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
