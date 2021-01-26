@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyPressed" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameboardController">
    <children>
       <Rectangle height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0">
          <fill>
@@ -23,5 +26,85 @@
             <Image url="@images/Header.png" />
          </image>
       </ImageView>
+      <Text fx:id="livesLeft" layoutX="761.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lives left: ">
+         <font>
+            <Font name="Gloria Hallelujah" size="32.0" />
+         </font>
+      </Text>
+      <Text fx:id="livesDisplay" layoutX="942.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Gloria Hallelujah" size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="278.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong letters:">
+         <font>
+            <Font name="Gloria Hallelujah" size="60.0" />
+         </font>
+      </Text>
+      <Rectangle fx:id="letterBoxOne" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="60.0" layoutX="228.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000097" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle fx:id="letterBoxTwo" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="60.0" layoutX="328.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000097" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle fx:id="letterBoxThree" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="60.0" layoutX="428.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000097" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle fx:id="LetterBoxFour" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="60.0" layoutX="528.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000097" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle fx:id="LetterBoxFive" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="60.0" layoutX="628.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000097" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle fx:id="LetterBoxSix" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="60.0" layoutX="728.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000097" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
+         </effect>
+      </Rectangle>
+      <Text fx:id="letterOne" layoutX="254.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+         <font>
+            <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
+      <Text fx:id="letterTwo" layoutX="354.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+         <font>
+            <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
+      <Text fx:id="letterThree" layoutX="451.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C" wrappingWidth="28.2568359375">
+         <font>
+            <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
+      <Text fx:id="letterFour" layoutX="557.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D">
+         <font>
+            <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
+      <Text fx:id="letterFive" layoutX="655.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E">
+         <font>
+            <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
+      <Text fx:id="letterSix" layoutX="755.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F">
+         <font>
+            <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
+      <Text fx:id="wrongLettersBox" layoutX="267.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+         <font>
+            <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

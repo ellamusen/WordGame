@@ -8,3 +8,13 @@
     -fx-background-color: #08D10D !important;
     -fx-text-fill: #fff;
 }
+
+.deactivate1 {
+    -fx-background-color: #75C684 !important;
+    -fx-text-fill: #E3E3E3;
+}
+
+.deactivate2 {
+    -fx-background-color: #E3E3E3 !important;
+    -fx-text-fill: #000;
+}

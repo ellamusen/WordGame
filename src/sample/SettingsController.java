@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class SettingsController {
@@ -53,21 +52,32 @@ public class SettingsController {
         System.out.println("setWords");
         String value = ((Button) event.getSource()).getText();
         if (value.equals("Generated")) {
-            this.isGenerated = true;
-            this.isCustom = false;
+            System.out.println("setEachRound");
+            this.isGenerated = true; // GENERATED button is chosen
+            this.isCustom = false; // CUSTOM button is not chosen
+            this.isAutomatic = true; // AUTOMATIC button is chosen
+            this.isManual = false; // MANUAL button is not chosen
+            this.isManualBtn.setDisable(true); // Disabling the MANUAL button, when GENERATED button is chosen
 
-            this.isGeneratedBtn.getStyleClass().add("active");
-            this.isCustomBtn.getStyleClass().remove("active");
-            this.isCustomBtn.getStyleClass().add("settingsButton");
+            this.isGeneratedBtn.getStyleClass().add("active"); // GENERATED button turns green
+            this.isCustomBtn.getStyleClass().remove("active"); // CUSTOM button removes the green color
+            this.isCustomBtn.getStyleClass().add("settingsButton"); // CUSTOM button turns to default color (white)
+            this.isAutomaticBtn.getStyleClass().add("deactivate1"); // AUTOMATIC button turns green-ish (indicating that it is disabled)
+            this.isManualBtn.getStyleClass().add("deactivate2"); // MANUAL button turns grey-ish (indicating that it is disabled)
 
         }
         if (value.equals("Custom")) {
             this.isCustom = true;
             this.isGenerated = false;
+            this.isManualBtn.setDisable(false);
 
-            this.isCustomBtn.getStyleClass().add("active");
-            this.isGeneratedBtn.getStyleClass().remove("active");
-            this.isGeneratedBtn.getStyleClass().add("settingsButton");
+            this.isCustomBtn.getStyleClass().add("active"); // CUSTOM button turns green
+            this.isGeneratedBtn.getStyleClass().remove("active"); // GENERATED button removes the green color
+            this.isGeneratedBtn.getStyleClass().add("settingsButton"); // GENERATED button turns to default color (white)
+            this.isAutomaticBtn.getStyleClass().remove("deactivate1"); //
+            this.isAutomaticBtn.getStyleClass().add("settingsButton");
+            this.isManualBtn.getStyleClass().remove("deactivate2");
+            this.isManualBtn.getStyleClass().add("settingsButton");
         }
     }
 
@@ -174,18 +184,20 @@ public class SettingsController {
         System.out.println("None: " + this.livesNone);
 
 
+
         // Pressing the Start Button
-        System.out.println("The game has started!");
+        System.out.println("The game has started!"); // A message is displayed
 
-        try {
-            FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("gameboard.fxml"));
-            Parent settingsPane = settingsLoader.load();
-            Scene settingsScene = new Scene(settingsPane,1000,600);
-            settingsScene.getStylesheets().add("/assets/game.css"); // Added CSS file to Settings scene
+        try { // The try statement allows you to define a block of code to be tested for errors while it is being executed
+            FXMLLoader gameboardLoader = new FXMLLoader(getClass().getResource("gameboard.fxml")); // Setting the pane to the gameboard fxml file
+            Parent gameboardPane = gameboardLoader.load();
+            Scene gameboardScene = new Scene(gameboardPane,1000,600); // Setting the size of the new pane
+            gameboardScene.getRoot().requestFocus(); // Need this  to handle keyevents
+            gameboardScene.getStylesheets().add("/assets/game.css"); // Added CSS file to Settings scene
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.setScene(settingsScene);
+            stage.setScene(gameboardScene);
 
-        } catch (IOException io) {
+        } catch (IOException io) { // The catch statement allows you to define a block of code to be executed, if an error occurs in the try block
             io.printStackTrace();
         }
     }
