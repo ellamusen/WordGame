@@ -22,7 +22,6 @@ public class GameboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        words.add("budget");
         words.add("career");
         words.add("dollar");
         words.add("detail");
