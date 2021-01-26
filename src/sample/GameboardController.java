@@ -66,8 +66,8 @@ public class GameboardController implements Initializable {
         for (int i = 0; i < chosenWord.length(); i++) {
             if (event.getText().equals(String.valueOf(chosenWord.charAt(i)))) {
                 foundWord = true;
-                System.out.println("Du trykkede på: " + event.getText());
-                System.out.println("Plads: " + i);
+                System.out.println("You typed: " + event.getText());
+                System.out.println("Index: " + i);
 
                 switch (i) {
                     case 0: {
