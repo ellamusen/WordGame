@@ -79,6 +79,18 @@ public class SettingsController {
             this.isAutomaticBtn.getStyleClass().add("settingsButton");
             this.isManualBtn.getStyleClass().remove("deactivate2");
             this.isManualBtn.getStyleClass().add("settingsButton");
+
+            try {
+                FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("customWords.fxml"));
+                Parent settingsPane = settingsLoader.load();
+                Scene settingsScene = new Scene(settingsPane,1000,600);
+                settingsScene.getStylesheets().add("/assets/game.css"); // Added CSS file to Settings scene
+                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage.setScene(settingsScene);
+
+            } catch (IOException io) {
+                io.printStackTrace();
+            }
         }
     }
 
