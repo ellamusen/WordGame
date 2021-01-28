@@ -8,7 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import java.io.IOException;
+
+import java.io.*;
 
 public class SettingsController {
 
@@ -150,7 +151,7 @@ public class SettingsController {
             this.livesNoneBtn.getStyleClass().remove("active");
             this.livesNoneBtn.getStyleClass().add("settingsButton");
         }
-        if  (value.equals("None")) {
+        if (value.equals("None")) {
             this.livesFive = false;
             this.livesTen = false;
             this.livesFifteen = false;
@@ -168,21 +169,30 @@ public class SettingsController {
 
     @FXML
     void startGame(ActionEvent event) {
-        System.out.println("\n");
-        System.out.println("Words:");
-        System.out.println("Generated: " + this.isGenerated);
-        System.out.println("Custom: " + this.isCustom);
-        System.out.println("\t");
-        System.out.println("New words each rounds:");
-        System.out.println("Automatic: " + this.isAutomatic);
-        System.out.println("Manual: " + this.isManual);
-        System.out.println("\t");
-        System.out.println("Lives:");
-        System.out.println("Five lives: " + this.livesFive);
-        System.out.println("Ten lives: " + this.livesTen);
-        System.out.println("Fifteen lives: " + this.livesFifteen);
-        System.out.println("None: " + this.livesNone);
 
+        String wordSetting = this.isGenerated ? "Generated": "Custom";
+        String roundSetting = this.isAutomatic ? "Automatic": "Manual";
+        int lives = 0;
+        if (this.livesFive) lives = 5;
+        else if (this.livesTen) lives = 10;
+        else if (this.livesFifteen) lives = 15;
+
+        Setting settings = new Setting(wordSetting, roundSetting, lives);
+
+        try {
+            FileOutputStream f = new FileOutputStream(new File("Settings.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+
+            o.writeObject(settings);
+
+            o.close();
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("Error initializing stream");
+        }
 
 
         // Pressing the Start Button
@@ -191,14 +201,16 @@ public class SettingsController {
         try { // The try statement allows you to define a block of code to be tested for errors while it is being executed
             FXMLLoader gameboardLoader = new FXMLLoader(getClass().getResource("gameboard.fxml")); // Setting the pane to the gameboard fxml file
             Parent gameboardPane = gameboardLoader.load();
-            Scene gameboardScene = new Scene(gameboardPane,1000,600); // Setting the size of the new pane
+            Scene gameboardScene = new Scene(gameboardPane, 1000, 600); // Setting the size of the new pane
             gameboardScene.getRoot().requestFocus(); // Need this  to handle keyevents
             gameboardScene.getStylesheets().add("/assets/game.css"); // Added CSS file to Settings scene
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(gameboardScene);
 
-        } catch (IOException io) { // The catch statement allows you to define a block of code to be executed, if an error occurs in the try block
+        } catch (
+                IOException io) { // The catch statement allows you to define a block of code to be executed, if an error occurs in the try block
             io.printStackTrace();
         }
     }
 }
+

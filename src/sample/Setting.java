@@ -17,6 +17,30 @@ public class Setting implements Serializable {
         this.lives = lives;
     }
 
+    public String getWords() {
+        return words;
+    }
+
+    public void setWords(String words) {
+        this.words = words;
+    }
+
+    public String getRounds() {
+        return rounds;
+    }
+
+    public void setRounds(String rounds) {
+        this.rounds = rounds;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
+
     @Override
     public String toString() {
         return "Words: " + words + "\nRounds: " + rounds + "\nLives: " + lives;

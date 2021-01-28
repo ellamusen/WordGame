@@ -6,6 +6,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -22,13 +23,41 @@ public class GameboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        words.add("career");
-        words.add("dollar");
-        words.add("detail");
-        words.add("domain");
-        words.add("employ");
-        words.add("empire");
-        words.add("estate");
+
+        FileInputStream fi = null;
+        try {
+            fi = new FileInputStream(new File("Settings.txt"));
+
+            ObjectInputStream oi = new ObjectInputStream(fi);
+
+            Setting settings = (Setting) oi.readObject();
+
+            if (settings.getWords().equals("Generated")) {
+                words.add("career");
+                words.add("dollar");
+                words.add("detail");
+                words.add("domain");
+                words.add("employ");
+                words.add("empire");
+                words.add("estate");
+            }
+            else {
+                words.add("Hejhej");
+            }
+
+            if (settings.getRounds().equals("Automatic")) {
+
+            }
+
+            System.out.println(settings.toString());
+
+            oi.close();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
 
         int randomInt = (int)(words.size() * Math.random());
         chosenWord = words.get(randomInt);
