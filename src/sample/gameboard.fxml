@@ -17,7 +17,8 @@
             <LinearGradient endX="1.0" endY="0.028776978417266202" startY="1.0">
                <stops>
                   <Stop color="#f28500" />
-                  <Stop color="#ffb200be" offset="1.0" />
+                  <Stop color="#f28500" offset="0.007532956685499058" />
+                  <Stop color="#ffb200bf" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill></Rectangle>
@@ -104,6 +105,16 @@
       <Text fx:id="wrongLettersBox" layoutX="267.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
          <font>
             <Font name="Gloria Hallelujah" size="45.0" />
+         </font>
+      </Text>
+      <Rectangle fx:id="letterBoxOne1" arcHeight="17.0" arcWidth="17.0" fill="WHITE" height="41.0" layoutX="15.0" layoutY="97.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="140.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000097" height="50.0" offsetX="5.0" offsetY="5.0" radius="24.5" width="50.0" />
+         </effect>
+      </Rectangle>
+      <Text layoutX="32.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+         <font>
+            <Font name="Gloria Hallelujah" size="25.0" />
          </font>
       </Text>
    </children>
